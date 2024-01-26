@@ -16,3 +16,7 @@ System.out.println("Hello World!");
 	}
 
 }
+// Class Example 
+// cntrl + ? = // 
+// Length relates to strings StrMyName.length()-1));
+// 
