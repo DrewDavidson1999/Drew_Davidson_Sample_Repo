@@ -1,7 +1,7 @@
 /* Author: Drew Davidson
  * Class: MIST352-Spring24
  * In Class Task #3 
- * This program calculates the amount of money left in an account after using the compunded interest formula given user inputed amounts
+ * This program calculates the amount of money left in an account after using the compunded interest formula using given user inputed amounts
  */
 
 import javax.swing.JOptionPane;

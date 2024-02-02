@@ -1,3 +1,9 @@
+/* Author: Drew Davidson
+ * Class: MIST352-Spring24
+ * In Class Task #3 
+ * This program takes user input on a variation of variables, then formulates the user's inputs into a sentence. 
+ */
+
 import javax.swing.JOptionPane;
 
 public class Task2 
