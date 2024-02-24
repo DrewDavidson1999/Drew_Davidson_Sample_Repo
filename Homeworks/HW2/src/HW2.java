@@ -58,28 +58,27 @@ public class HW2 {
 				"Ginger Option", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (gingerOption == JOptionPane.YES_OPTION) { // If the user selects "YES" in the confirm dialog box
-			totalJuiceCost += 1.00; // add 
+			totalJuiceCost += 1.00;  
 			ginger = "Ginger";
 		}
 			
 		JOptionPane.showMessageDialog(null, "Total cost: $" + totalJuiceCost);
 		
 		if (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) { // If the user selects Mango as their base juice and adds ginger 
-			totalJuiceCost -= 0.50; // Apply a $0.50 discount 
+			totalJuiceCost -= 0.50;  
 		}
 		
-        double fullPrice = totalJuiceCost + addOnPrice; // Calculate the full price
-        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; // Calculate the discount
-        double totalBeforeTax = fullPrice - discount; // Calculate the total before tax
-        double tax = totalBeforeTax * 0.16; // Calculate the tax
-        double totalAfterTax = totalBeforeTax + tax; // Calculate the total after tax
+        double fullPrice = totalJuiceCost + addOnPrice; 
+        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; 
+        double totalBeforeTax = fullPrice - discount; 
+        double tax = totalBeforeTax * 0.16; 
+        double totalAfterTax = totalBeforeTax + tax; 
 
-        // Format the final bill message
         String FinalBill = String.format("I Final Bill I\n"+ "-----------------------------\n"+ "Base Juice: %s - $%.2f\n"+ "Add-On: %s - $%.2f\n"+ "-----------------------------\n"
                 + "Full Price: $%.2f\n"+ "Discount: -$%.2f\n"+ "-----------------------------\n"+ "Total Before Tax: $%.2f\n"+ "Tax: $%.2f\n"+ "-----------------------------\n"
                 + "Total After Tax: $%.2f", baseJuiceName, totalJuiceCost, ginger, addOnPrice, fullPrice, discount, totalBeforeTax, tax, totalAfterTax);
 
-        JOptionPane.showMessageDialog(null, FinalBill); // Display the formatted final bill
+        JOptionPane.showMessageDialog(null, FinalBill); 
 		
 	}
 }
