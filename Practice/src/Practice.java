@@ -1,35 +1,44 @@
 import java.util.Scanner;  // Needed for the Scanner class
 
-/** 
- *   This program has a problem reading input.
+/**
+ * This program demonstrates the if statement.
  */
- 
-public class InputProblem
+
+public class Practice 
 {
    public static void main(String[] args)
    {
-      String name;   // To hold the user's name
-      int age;       // To hold the user's age
-      double income; // To hold the user's income
-      
+      double score1,   // Score #1
+             score2,   // Score #2
+             score3,   // Score #3
+             average;  // Average score
+
       // Create a Scanner object to read input.
       Scanner keyboard = new Scanner(System.in);
+
+      System.out.println("This program averages " +
+                         "3 test scores.");
       
-      // Get the user's age.
-      System.out.print("What is your age? ");
-      age = keyboard.nextInt();
+      // Get the first score.
+      System.out.print("Enter score #1: ");
+      score1 = keyboard.nextDouble();
       
-      // Get the user's income
-      System.out.print("What is your annual income? ");
-      income = keyboard.nextDouble();
+      // Get the second score.
+      System.out.print("Enter score #2: ");
+      score2 = keyboard.nextDouble ();
       
-      // Get the user's name.
-      System.out.print("What is your name? ");
-      name = keyboard.nextLine();
+      // Get the third score.
+      System.out.print("Enter score #3: ");
+      score3 = keyboard.nextDouble ();
       
-      // Display the information back to the user.
-      System.out.println("Hello " + name + ". Your age is "
-                         + age + " and your income is $"
-                         + income);
+      // Calculate and display the average score.
+      average = (score1 + score2 + score3) / 3.0;
+      System.out.println("The average is " + average);
+      
+      // If the average is higher than 95, congratulate
+      // the user.
+      if (average > 95)
+         
+    	  System.out.println("Thatís a great score!");
    }
-}
+} 
