@@ -50,35 +50,43 @@ public class HW2 {
 			return;
 		}
 		
-		double addOnPrice = 1.00;
-        String ginger = "";
+		double addOnPrice = 1.00; // Making the variable addOnPrice = $1.00, variable can store decimals 
+        String ginger = "Ginger"; // Declaring a variable "ginger" to string type, assigning "Ginger" to the ginger variable 
 		
-        Object[] options = {"YES", "NO"};
-		int gingerOption = JOptionPane.showOptionDialog(null, "Would you like to add ginger for an extra $1.00?", // Asking the user if they would like to add ginger for an extra $1.00
-				"Ginger Option", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		int gingerOption = JOptionPane.showConfirmDialog(null, "Would you like to add ginger for an extra $1.00?", // Asking the user if they would like to add ginger for an extra $1.00
+				"Ginger Option", JOptionPane.YES_NO_OPTION);
 		
 		if (gingerOption == JOptionPane.YES_OPTION) { // If the user selects "YES" in the confirm dialog box
-			totalJuiceCost += 1.00;  
-			ginger = "Ginger";
+			totalJuiceCost += 1.00; // Add $1.00 to the total cost of the bill  
+			ginger = "Ginger"; 
 		}
 			
 		JOptionPane.showMessageDialog(null, "Total cost: $" + totalJuiceCost);
 		
 		if (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) { // If the user selects Mango as their base juice and adds ginger 
-			totalJuiceCost -= 0.50;  
+			totalJuiceCost -= 0.50; // Add a $0.50 discount from the total price 
 		}
 		
-        double fullPrice = totalJuiceCost + addOnPrice; 
-        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; 
-        double totalBeforeTax = fullPrice - discount; 
-        double tax = totalBeforeTax * 0.16; 
-        double totalAfterTax = totalBeforeTax + tax; 
+        double totalPrice = totalJuiceCost + addOnPrice; // Fullprice = the totalJuiceCost + the addOnPrice 
+        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; // Discount = if case 3 for Mango is chosen & user selects "YES" for gingeroption 
+        double totalBeforeTax = totalPrice - discount; // totalPreTax = totalPrice of juice - discount if applicable 
+        double tax = totalBeforeTax * 0.16; // TotalPreTax is multiplied by 0.16 to account for sales tax 
+        double totalAfterTax = totalBeforeTax + tax; // Adding totalPretax and tax 
 
-        String FinalBill = String.format("I Final Bill I\n"+ "-----------------------------\n"+ "Base Juice: %s - $%.2f\n"+ "Add-On: %s - $%.2f\n"+ "-----------------------------\n"
-                + "Full Price: $%.2f\n"+ "Discount: -$%.2f\n"+ "-----------------------------\n"+ "Total Before Tax: $%.2f\n"+ "Tax: $%.2f\n"+ "-----------------------------\n"
-                + "Total After Tax: $%.2f", baseJuiceName, totalJuiceCost, ginger, addOnPrice, fullPrice, discount, totalBeforeTax, tax, totalAfterTax);
+        // Formating the Final Bill 
+        String FinalBill = String.format("| Final Bill |\n"+ "-----------------------------\n"
+        + "Base Juice: %s - $%.2f\n"
+        + "Add-On: %s - $%.2f\n"
+        + "-----------------------------\n"
+        + "Full Price: $%.2f\n"
+        + "Discount: -$%.2f\n"
+        + "-----------------------------\n"
+        + "Total Before Tax: $%.2f\n"
+        + "Tax: $%.2f\n"
+        + "-----------------------------\n"
+        + "Total After Tax: $%.2f", baseJuiceName, totalJuiceCost, ginger, addOnPrice, totalPrice, discount, totalBeforeTax, tax, totalAfterTax);
 
-        JOptionPane.showMessageDialog(null, FinalBill); 
+        JOptionPane.showMessageDialog(null, FinalBill); // Displaying the final bill in a message dialog box 
 		
 	}
 }
