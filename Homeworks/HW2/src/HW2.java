@@ -67,11 +67,11 @@ public class HW2 {
 			totalJuiceCost -= 0.50; // Add a $0.50 discount from the total price 
 		}
 		
-        double totalPrice = totalJuiceCost + addOnPrice; // totalprice = the totalJuiceCost + the addOnPrice 
+        double totalPrice = totalJuiceCost + addOnPrice; // total price of juice including addon option 
         double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; // Using a ternary operator, if statement is true $0.50 discount added, if not true nothing changes 
-        double totalBeforeTax = totalPrice - discount; // totalPreTax = totalPrice of juice - discount if applicable 
-        double tax = totalBeforeTax * 0.16; // TotalPreTax is multiplied by 0.16 to account for sales tax 
-        double totalAfterTax = totalBeforeTax + tax; // Adding totalPretax and tax 
+        double totalBeforeTax = totalPrice - discount; // calculating total before tax
+        double tax = totalBeforeTax * 0.16; // TotalPreTax is multiplied by 0.16 to calculate tax 
+        double totalAfterTax = totalBeforeTax + tax; // calculating total after tax 
 
         // Formating the Final Bill 
         String FinalBill = "| Final Bill |\n"
