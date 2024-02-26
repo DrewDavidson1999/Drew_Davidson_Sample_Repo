@@ -51,7 +51,7 @@ public class HW2 {
 		}
 		
 		double addOnPrice = 1.00; // Making the variable addOnPrice = $1.00, variable can store decimals 
-        String ginger = "Ginger"; // Declaring a variable "ginger" to string type, assigning "Ginger" to the ginger variable 
+        String ginger = "Ginger"; // Declaring a variable "ginger" to string type, assigning "Ginger" to the ginger variable
 		
 		int gingerOption = JOptionPane.showConfirmDialog(null, "Would you like to add ginger for an extra $1.00?", // Asking the user if they would like to add ginger for an extra $1.00
 				"Ginger Option", JOptionPane.YES_NO_OPTION);
@@ -67,24 +67,25 @@ public class HW2 {
 			totalJuiceCost -= 0.50; // Add a $0.50 discount from the total price 
 		}
 		
-        double totalPrice = totalJuiceCost + addOnPrice; // Fullprice = the totalJuiceCost + the addOnPrice 
-        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; // Discount = if case 3 for Mango is chosen & user selects "YES" for gingeroption 
+        double totalPrice = totalJuiceCost + addOnPrice; // totalprice = the totalJuiceCost + the addOnPrice 
+        double discount = (intOption == 3 && gingerOption == JOptionPane.YES_OPTION) ? 0.50 : 0.00; // Using a ternary operator, if statement is true $0.50 discount added, if not true nothing changes 
         double totalBeforeTax = totalPrice - discount; // totalPreTax = totalPrice of juice - discount if applicable 
         double tax = totalBeforeTax * 0.16; // TotalPreTax is multiplied by 0.16 to account for sales tax 
         double totalAfterTax = totalBeforeTax + tax; // Adding totalPretax and tax 
 
         // Formating the Final Bill 
-        String FinalBill = String.format("| Final Bill |\n"+ "-----------------------------\n"
-        + "Base Juice: %s - $%.2f\n"
-        + "Add-On: %s - $%.2f\n"
-        + "-----------------------------\n"
-        + "Full Price: $%.2f\n"
-        + "Discount: -$%.2f\n"
-        + "-----------------------------\n"
-        + "Total Before Tax: $%.2f\n"
-        + "Tax: $%.2f\n"
-        + "-----------------------------\n"
-        + "Total After Tax: $%.2f", baseJuiceName, totalJuiceCost, ginger, addOnPrice, totalPrice, discount, totalBeforeTax, tax, totalAfterTax);
+        String FinalBill = "| Final Bill |\n"
+                + "-----------------------------\n"
+                + "Base Juice: " + baseJuiceName + " - $" + String.format("%.2f", totalJuiceCost) + "\n"
+                + "Add-On: " + ginger + " - $" + String.format("%.2f", addOnPrice) + "\n"
+                + "-----------------------------\n"
+                + "Full Price: $" + String.format("%.2f", totalPrice) + "\n"
+                + "Discount: -$" + String.format("%.2f", discount) + "\n"
+                + "-----------------------------\n"
+                + "Total Before Tax: $" + String.format("%.2f", totalBeforeTax) + "\n"
+                + "Tax: $" + String.format("%.2f", tax) + "\n"
+                + "-----------------------------\n"
+                + "Total After Tax: $" + String.format("%.2f", totalAfterTax);
 
         JOptionPane.showMessageDialog(null, FinalBill); // Displaying the final bill in a message dialog box 
 		
