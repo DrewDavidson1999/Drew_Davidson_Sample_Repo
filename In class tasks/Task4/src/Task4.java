@@ -22,11 +22,11 @@ public class Task4 {
         }
         
         System.out.println("\nSales Bar Chart for each Store:"); // Printing out text before the bar chart
-        for (int store = 0; store < 5; store++) // Creating for loop for stores 
+        for (int intstore = 0; intstore < 5; intstore++) // Creating for loop for the number of the stores 
         {
-            System.out.printf("Store " + (store + 1) + ": "); // Going to the next input for the following store changing the store number in order from 1-5 
+            System.out.printf("Store " + (intstore + 1) + ": "); // Going to the next input for the following store changing the store number in order from 1-5 
 
-            int asterisks = StoreSales[store] / 100; // Using 1 * per every $100 of sales from a store, this is done by taking the stores sales and dividing that int by 100 
+            int asterisks = StoreSales[intstore] / 100; // Using 1 * per every $100 of sales from a store, this is done by taking the stores sales and dividing that int by 100 
 
             for (int variable = 0; variable < asterisks; variable++) // Creating a for loop to determine the amount of *'s
             {
