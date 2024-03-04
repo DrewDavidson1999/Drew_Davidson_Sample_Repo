@@ -20,7 +20,7 @@ public class Task6
 		System.out.printf("Enter your name: "); // Printing out a message to user asking them to input name 
 		String Name = scnUserInput.nextLine(); // Creating a string called "Name" to hold users input 
 		
-		System.out.printf("Enter a description of yourself: "); // Printing out a message to user asking them to enter a description of themselves
+		System.out.printf("Describe yourself: "); // Printing out a message to user asking them to enter a description of themselves
 		String UserDesc = scnUserInput.nextLine(); // Creating a string called "UserDesc" to hold users input 
 		
 		// Using user input to create an HTML document 
@@ -35,9 +35,7 @@ public class Task6
 		PrintWriter.println(html); // Printing the contents of the html string to the printwriter  
 		PrintWriter.close(); // Closing printwriter
 		scnUserInput.close(); // Closing scnUserInput
-		HTML.close(); 
-		
-		System.out.println("HTML file has been created"); // Printing a message to user saying the HTML file has been created
-		
+		HTML.close(); // Closing HTML 
+				
 	}
 }
