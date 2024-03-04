@@ -1,7 +1,7 @@
 /* Author [Drew Davidson]
  * Class: MIST352-Spring24
  * In Class Task #4
- * This program 
+ * This program takes the user input about how many floors are in a hotel, how many rooms per floor, and how many occupied rooms. Then takes the information inputed by the user and generates a occupancy rate
  */
 
 package task5; // Declaring package 
