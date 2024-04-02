@@ -13,7 +13,7 @@ public class ExtraCredit{
             for (int n = 1; n <= num; n++) { // Creating an inner loop, n is the for loop variable 
                 sum += n; // adding the variable n to sum 
             }
-            System.out.println(sum); // Printing the outcome of the loop (num + sum)
+            System.out.println(sum); // Printing the outcome of the loop (sum)
         }
     }
 }
