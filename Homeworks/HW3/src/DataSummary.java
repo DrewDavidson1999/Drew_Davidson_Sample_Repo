@@ -159,6 +159,6 @@ public class DataSummary
 	    } catch (FileNotFoundException e) {
 	        System.err.println("File not found: " + fileLocation); // Error message 
 	    }
-	    return employees; // Returning list of employees
+	    return employees; // Returning list of employees.
 	}
 }
