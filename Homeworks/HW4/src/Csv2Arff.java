@@ -95,35 +95,33 @@ public class Csv2Arff {
         }
         return strData2Return;
     }
-	@SuppressWarnings("resource")
 	public void PrintMinMaxInfo(String strFile) {
         try {
             // Create a reader for the CSV file.
             BufferedReader csvReader = new BufferedReader(new FileReader(strFile));
-            String line = csvReader.readLine(); // Reading first line containing headers
+            String line = csvReader.readLine(); // Read the first line containing column headers.
             if (line == null) {
-                System.out.println("File is empty"); // Printing out if the file is empty
+                System.out.println("File is empty"); // Notify if the file is empty.
                 return;
             }
-            String[] columns = line.split(","); // Spliting header to get column names
-            Map<String, Double> minValues = new HashMap<>(); // Hashmap storing minimum values for each column
-            Map<String, Double> maxValues = new HashMap<>(); // Hashmap storing maximum values for each column
+            String[] columns = line.split(","); // Split the header to get column names.
+            Map<String, Double> minValues = new HashMap<>(); // Map to store minimum values for each column.
+            Map<String, Double> maxValues = new HashMap<>(); // Map to store maximum values for each column.
 
-            // Initializing hashmaps with extreme values
+            // Initialize maps with extreme values.
             for (String column : columns) {
                 minValues.put(column, Double.MAX_VALUE);
                 maxValues.put(column, Double.MIN_VALUE);
             }
 
-            // Reading through data lines
+            // Read through the data lines.
             while ((line = csvReader.readLine()) != null) {
                 String[] data = line.split(",");
-                for (int i = 1; i < data.length; i++) { // Starting from 1 plus skipping the name column
-                    double value = Double.parseDouble(data[i]); // Parsing each value as a double
-                    String columnName = columns[i]; // Getting column name
-                    // Updating minimum and maximum values for columns
-                    if (value != 0 && value < minValues.get(columnName)) 
-                    {
+                for (int i = 1; i < data.length; i++) { // Start from 1 to skip the name column.
+                    double value = Double.parseDouble(data[i]); // Parse each value as a double.
+                    String columnName = columns[i]; // Get the column name.
+                    // Update the minimum and maximum values for each column.
+                    if (value != 0 && value < minValues.get(columnName)) {
                         minValues.put(columnName, value);
                     }
                     if (value > maxValues.get(columnName)) {
@@ -132,25 +130,23 @@ public class Csv2Arff {
                 }
             }
 
-            // Identifing columns with minimum and maximum values
+            // Identify the columns with the overall minimum and maximum values.
             String minColumn = "";
             String maxColumn = "";
             double minValue = Double.MAX_VALUE;
             double maxValue = Double.MIN_VALUE;
             for (String column : columns) {
-                if (minValues.get(column) < minValue) 
-                {
+                if (minValues.get(column) < minValue) {
                     minValue = minValues.get(column);
                     minColumn = column;
                 }
-                if (maxValues.get(column) > maxValue) 
-                {
+                if (maxValues.get(column) > maxValue) {
                     maxValue = maxValues.get(column);
                     maxColumn = column;
                 }
             }
 
-            // Printing out results
+            // Print out the results.
             System.out.println("Name: " + strFile);
             System.out.println("Maximum non-zero value:");
             System.out.println("File name: " + csvFileLocation);
@@ -159,11 +155,8 @@ public class Csv2Arff {
             System.out.println("File name: " + csvFileLocation);
             System.out.println("Minimum Value: " + minValue + " found in column: " + minColumn);
 
-            csvReader.close(); // Closing reader
-        } 
-        catch (IOException e) 
-        {
-            e.printStackTrace(); // Printing the stack trace in case of an IO error
+            csvReader.close(); // Close the reader.
+        } catch (IOException e) {
+            e.printStackTrace(); // Print the stack trace in case of an IO error.
         }
     }
-}
